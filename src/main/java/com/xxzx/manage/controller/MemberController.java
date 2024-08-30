@@ -4,9 +4,11 @@ import java.util.Collection;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.xxzx.manage.entity.Member;
 import com.xxzx.manage.service.MemberService;
@@ -42,8 +44,8 @@ public class MemberController {
      * 查询
      * 参数: ids[1,2]
      */
-    @GetMapping("/ids")
-    public List<Member> listByIds(@RequestParam(name = "ids", required = true) Collection<Integer> ids) {
+    @PostMapping("/ids")
+    public List<Member> listByIds(@RequestBody List<Integer> ids) {
         List<Member> memberList = (List<Member>) memberService.selectMemberByIds(ids);
         return memberList;
     }

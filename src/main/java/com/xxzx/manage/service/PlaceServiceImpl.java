@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.xxzx.manage.entity.Place;
 import com.xxzx.manage.repository.PlaceRepository;
+import com.xxzx.manage.specification.PlaceByIdsSpecification;
 import com.xxzx.manage.specification.PlaceSpecifications;
 
 @Service
@@ -31,6 +32,6 @@ public class PlaceServiceImpl implements PlaceService {
 
     @Override
     public Iterable<Place> selectPlaceByIds(Collection<Integer> ids) {
-        return placeRepository.findAll(PlaceSpecifications.byIds(ids));
+        return placeRepository.findAll(new PlaceByIdsSpecification(ids));
     }
 }

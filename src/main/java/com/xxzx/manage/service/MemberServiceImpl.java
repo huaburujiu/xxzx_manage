@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.xxzx.manage.entity.Member;
 import com.xxzx.manage.repository.MemberRepository;
+import com.xxzx.manage.specification.MemberByIdsSpecification;
 import com.xxzx.manage.specification.MemberSpecifications;
 
 @Service
@@ -32,7 +33,7 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public Iterable<Member> selectMemberByIds(Collection<Integer> ids) {
-        return memberRepository.findAll(MemberSpecifications.byIds(ids));
+        return memberRepository.findAll(new MemberByIdsSpecification(ids));
     }
 
 }

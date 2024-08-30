@@ -68,8 +68,6 @@ public class MissionController {
      */
     @RequestMapping(path = "/save", method = RequestMethod.POST)
     public String saveMission(@RequestBody Mission mission) {
-        System.out.println("member:" + mission.getMember().get(0));
-        System.out.println("content:" + mission.getContent());
         missionService.saveMission(mission);
         return mission.getId().toString();
     }
