@@ -45,8 +45,8 @@ public class MissionController {
 
     // Afficher le formulaire de modification du Mission
     @PutMapping("/edit/{id}")
-    public String edit(@PathVariable Mission mission) {
-        missionService.saveMission(mission);
+    public String edit(@RequestBody Mission mission, @PathVariable Integer id) {
+        missionService.setMission(mission, id);
         return "ok";
     }
 

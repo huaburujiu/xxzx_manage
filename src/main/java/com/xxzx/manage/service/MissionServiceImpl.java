@@ -31,4 +31,16 @@ public class MissionServiceImpl implements MissionService {
         missionRepository.deleteById(id);
     }
 
+    @Override
+    public Mission setMission(Mission newMission, Integer id) {
+        Mission mission = missionRepository.findById(id).get();
+        mission.setContent(newMission.getContent());
+        mission.setE_date(newMission.getE_date());
+        mission.setS_date(newMission.getS_date());
+        mission.setMember(newMission.getMember());
+        mission.setPlace(newMission.getPlace());
+        mission.setVehicle(newMission.getVehicle());
+        return missionRepository.save(mission);
+    }
+
 }

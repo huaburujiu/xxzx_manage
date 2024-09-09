@@ -9,5 +9,7 @@ public interface MissionService {
 
     Mission saveMission(Mission mission);
 
+    Mission setMission(Mission mission, Integer id);
+
     void deleteMission(Integer id);
 }
